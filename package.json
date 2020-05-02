@@ -1,0 +1,21 @@
+{
+  "name": "magic-pot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "bin": {
+    "magic-pot": "bin/main.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lpre-ys",
+  "license": "MIT",
+  "dependencies": {
+    "crc": "^3.4.4",
+    "md5": "^2.2.1",
+    "md5-file": "^4.0.0",
+    "minimist": "^1.2.0"
+  }
+}
