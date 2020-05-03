@@ -47,7 +47,8 @@ Require stack:
 
 下記の設定ファイルを作成し、作業フォルダに置いてください。  
 ファイルパスは、設定ファイルからの相対パスで構いません。
-magic-pot.config.js
+
+ファイル名: magic-pot.config.js
 ```
 module.exports = {
   'pictureDir': './orig/',  // 画像読み込み元
