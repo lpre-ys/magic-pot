@@ -2,10 +2,9 @@
   "name": "magic-pot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "private": true,
   "bin": {
-    "magic-pot": "bin/main.js"
+    "magic-pot": "bin/main"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
