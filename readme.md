@@ -54,6 +54,7 @@ module.exports = {
   'pictureDir': './orig/',  // 画像読み込み元
   'outputDir': '../tkool/test/Picture/',  // 画像配置先
   'tmpDir': './tmp/', // 作業用フォルダ
+  'transparentColor': [0, 255, 0],  // 透過色。RGBの順。
   'md5File': './magic-pot-md5.json',  // ファイルのハッシュをメモするファイル。変更なしで構いません。
   'imagickCmd': 'magick'  // ImageMagick実行コマンド
 };

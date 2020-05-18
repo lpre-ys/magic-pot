@@ -5,7 +5,7 @@ const crc = require('crc');
 const fs = require('fs');
 const zlib = require('zlib');
 
-function paletteSorter(inputPath, outputPath) {
+function paletteSorter(inputPath, outputPath, transparentColor) {
   return new Promise((resolve, reject) => {
     fs.readFile(inputPath, (err, file) => {
       !err ? resolve(file) : reject(err);
@@ -48,7 +48,7 @@ function paletteSorter(inputPath, outputPath) {
             }
           }
           // sort
-          transparentIndex = sortPalette(palette);
+          transparentIndex = sortPalette(palette, transparentColor);
           if (transparentIndex === false) {
             // ファイルをそのままコピーして終わる
             fs.writeFile(outputPath, file, (err) => {
@@ -153,10 +153,12 @@ function getSection(chunk) {
     return str;
 }
 
-function sortPalette(palette) {
+function sortPalette(palette, transparentColor) {
   // パレット変換
   const transparentIndex = palette.findIndex((color, idx) => {
-    if (color[0] == 0 && color[1] == 255 && color[2] == 0) {
+    if (color[0] == transparentColor[0]
+     && color[1] == transparentColor[1]
+     && color[2] == transparentColor[2]) {
       return true;
     }
   });

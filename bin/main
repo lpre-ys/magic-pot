@@ -13,6 +13,10 @@ const parseArgs = require('minimist');
 const paletteSorter = require('../src/palette-sorter');
 
 const args = parseArgs(process.argv);
+if (args.version) {
+  console.info(require('../package').version);
+  process.exit(1);
+}
 if (!args.config) {
   args.config = 'magic-pot.config.js';
 }
@@ -33,6 +37,7 @@ try {
 }
 
 const imagick = config.imagickCmd;
+const transparentColor = config.transparentColor || [0, 255, 0];
 
 console.log(`INIT-START`);
 
@@ -43,7 +48,7 @@ images.filter(filterImagePath).forEach((image) => {
   const tmpFilePath = path.resolve(path.join(tmpPath, path.basename(image)));
   execSync(`${imagick} ${image} png8:${tmpFilePath}`);
   try {
-    paletteSorter(tmpFilePath, getOutputPath(image));
+    paletteSorter(tmpFilePath, getOutputPath(image), transparentColor);
   } catch (e) {
     console.err(e);
   }
